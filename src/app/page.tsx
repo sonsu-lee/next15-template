@@ -2,11 +2,15 @@ import { Button } from "@base-ui/react/button";
 import { Popover } from "@base-ui/react/popover";
 import * as stylex from "@stylexjs/stylex";
 
+import { formatStackLabel } from "@/lib/format-stack-label";
+
+const stackLabel = formatStackLabel(["Next.js", "Base UI", "StyleX"]);
+
 export default function Home() {
   return (
     <main {...stylex.props(styles.page)}>
       <section {...stylex.props(styles.panel)} aria-labelledby="template-title">
-        <p {...stylex.props(styles.kicker)}>Next.js + Base UI + StyleX</p>
+        <p {...stylex.props(styles.kicker)}>{stackLabel}</p>
         <div {...stylex.props(styles.header)}>
           <h1 id="template-title" {...stylex.props(styles.title)}>
             Base UI is configured.
