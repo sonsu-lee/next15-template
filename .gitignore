@@ -25,6 +25,11 @@
 .DS_Store
 *.pem
 
+# codex
+/.codex/*
+!/.codex/
+!/.codex/config.toml
+
 # debug
 npm-debug.log*
 yarn-debug.log*

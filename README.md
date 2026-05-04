@@ -221,6 +221,51 @@ pnpm start
 Configure production environment variables in the deployment platform rather
 than committing secret values to the repository.
 
+## MCP Setup
+
+This template includes project-level Serena MCP configuration for coding
+agents:
+
+- Claude Code reads `.mcp.json`.
+- Codex reads `.codex/config.toml`.
+- Serena project metadata lives in `.serena/project.yml`.
+- Serena local overrides and caches are ignored by `.serena/.gitignore`.
+
+Install the Serena CLI before using the project MCP server:
+
+```bash
+uv tool install -p 3.13 serena-agent@latest --prerelease=allow
+```
+
+Verify the local install:
+
+```bash
+serena --version
+```
+
+Both MCP clients start Serena from the current working directory with
+`--project-from-cwd` and use a client-specific Serena context:
+
+- Claude Code uses `--context claude-code`.
+- Codex uses `--context codex`.
+
+The web dashboard is allowed but not opened automatically so the server can run
+cleanly in terminal and headless workflows.
+
+Context7 is intentionally not configured in project files. Keep it in the user
+or global MCP configuration so authentication and personal tool preferences do
+not get overridden by this template.
+
+To inspect the registered servers:
+
+```bash
+claude mcp list
+codex mcp list
+```
+
+If Claude Code also has Serena installed through a user-level plugin, disable
+one Serena entry locally to avoid duplicate Serena tools.
+
 ## Agent Notes
 
 Project instructions for coding agents live in:

@@ -1,0 +1,11 @@
+[mcp_servers.serena]
+startup_timeout_sec = 15
+command = "serena"
+args = [
+  "start-mcp-server",
+  "--project-from-cwd",
+  "--context",
+  "codex",
+  "--open-web-dashboard",
+  "False",
+]
