@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommits"],
+  "dependencyDashboard": true,
+  "rangeStrategy": "pin",
+  "labels": ["dependencies"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Wait for npm packages to settle before proposing routine updates.",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Keep runtime engine ranges aligned with the template LTS policy.",
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
+      "description": "Keep Corepack pnpm updates inside the current pnpm major.",
+      "matchDepTypes": ["packageManager"],
+      "matchPackageNames": ["pnpm"],
+      "allowedVersions": "<11"
+    },
+    {
+      "description": "Update Next.js, React, React Compiler, and React types together.",
+      "matchPackageNames": [
+        "next",
+        "react",
+        "react-dom",
+        "babel-plugin-react-compiler",
+        "@types/react",
+        "@types/react-dom"
+      ],
+      "groupName": "next and react"
+    },
+    {
+      "description": "Update StyleX runtime, compiler, lint, and PostCSS packages together.",
+      "matchPackageNames": ["@stylexjs/*"],
+      "groupName": "stylex"
+    },
+    {
+      "description": "Update Oxlint and its type-aware lint engine together.",
+      "matchPackageNames": ["oxlint", "oxlint-tsgolint"],
+      "groupName": "oxlint"
+    }
+  ]
+}
