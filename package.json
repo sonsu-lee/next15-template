@@ -9,14 +9,18 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
+    "@stylexjs/stylex": "^0.18.3",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@stylexjs/babel-plugin": "^0.18.3",
+    "@stylexjs/postcss-plugin": "^0.18.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.5.0",
     "babel-plugin-react-compiler": "1.0.0",
     "typescript": "^5"
   }
