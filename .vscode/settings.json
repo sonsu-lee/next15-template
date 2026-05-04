@@ -1,5 +1,6 @@
 {
   "oxc.fmt.configPath": ".oxfmtrc.json",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.oxc": "always"
   },

@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "check": "pnpm fmt:check && pnpm lint && pnpm typecheck && pnpm build",
+    "typecheck": "tsc --noEmit",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "lint:ci": "oxlint --format=github",
@@ -14,24 +16,29 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@base-ui/react": "^1.4.1",
-    "@stylexjs/stylex": "^0.18.3",
+    "@base-ui/react": "1.4.1",
+    "@stylexjs/stylex": "0.18.3",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@stylexjs/babel-plugin": "^0.18.3",
-    "@stylexjs/eslint-plugin": "^0.18.3",
-    "@stylexjs/postcss-plugin": "^0.18.3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.5.0",
+    "@stylexjs/babel-plugin": "0.18.3",
+    "@stylexjs/eslint-plugin": "0.18.3",
+    "@stylexjs/postcss-plugin": "0.18.3",
+    "@types/node": "24.12.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "10.5.0",
     "babel-plugin-react-compiler": "1.0.0",
-    "oxfmt": "^0.47.0",
-    "oxlint": "^1.62.0",
-    "oxlint-tsgolint": "^0.22.1",
-    "typescript": "^5"
-  }
+    "oxfmt": "0.47.0",
+    "oxlint": "1.62.0",
+    "oxlint-tsgolint": "0.22.1",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=24.11.0 <25",
+    "pnpm": ">=10.33.2 <11"
+  },
+  "packageManager": "pnpm@10.33.2"
 }

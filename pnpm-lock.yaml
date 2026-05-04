@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@base-ui/react':
-        specifier: ^1.4.1
+        specifier: 1.4.1
         version: 1.4.1(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@stylexjs/stylex':
-        specifier: ^0.18.3
+        specifier: 0.18.3
         version: 0.18.3
       next:
         specifier: 16.2.4
@@ -25,40 +25,40 @@ importers:
         version: 19.2.4(react@19.2.4)
     devDependencies:
       '@stylexjs/babel-plugin':
-        specifier: ^0.18.3
+        specifier: 0.18.3
         version: 0.18.3
       '@stylexjs/eslint-plugin':
-        specifier: ^0.18.3
+        specifier: 0.18.3
         version: 0.18.3
       '@stylexjs/postcss-plugin':
-        specifier: ^0.18.3
+        specifier: 0.18.3
         version: 0.18.3
       '@types/node':
-        specifier: ^20
-        version: 20.19.39
+        specifier: 24.12.2
+        version: 24.12.2
       '@types/react':
-        specifier: ^19
+        specifier: 19.2.14
         version: 19.2.14
       '@types/react-dom':
-        specifier: ^19
+        specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
       autoprefixer:
-        specifier: ^10.5.0
+        specifier: 10.5.0
         version: 10.5.0(postcss@8.5.13)
       babel-plugin-react-compiler:
         specifier: 1.0.0
         version: 1.0.0
       oxfmt:
-        specifier: ^0.47.0
+        specifier: 0.47.0
         version: 0.47.0
       oxlint:
-        specifier: ^1.62.0
+        specifier: 1.62.0
         version: 1.62.0(oxlint-tsgolint@0.22.1)
       oxlint-tsgolint:
-        specifier: ^0.22.1
+        specifier: 0.22.1
         version: 0.22.1
       typescript:
-        specifier: ^5
+        specifier: 5.9.3
         version: 5.9.3
 
 packages:
@@ -714,8 +714,8 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@types/node@20.19.39':
-    resolution: {integrity: sha512-orrrD74MBUyK8jOAD/r0+lfa1I2MO6I+vAkmAWzMYbCcgrN4lCrmK52gRFQq/JRxfYPfonkr4b0jcY7Olqdqbw==}
+  '@types/node@24.12.2':
+    resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -996,8 +996,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   update-browserslist-db@1.2.3:
     resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
@@ -1495,9 +1495,9 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@types/node@20.19.39':
+  '@types/node@24.12.2':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 7.16.0
 
   '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
@@ -1798,7 +1798,7 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  undici-types@6.21.0: {}
+  undici-types@7.16.0: {}
 
   update-browserslist-db@1.2.3(browserslist@4.28.2):
     dependencies:
