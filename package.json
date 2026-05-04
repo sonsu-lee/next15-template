@@ -5,7 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "lint:ci": "oxlint --format=github",
+    "lint:json": "oxlint --format=json",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
@@ -16,12 +22,16 @@
   },
   "devDependencies": {
     "@stylexjs/babel-plugin": "^0.18.3",
+    "@stylexjs/eslint-plugin": "^0.18.3",
     "@stylexjs/postcss-plugin": "^0.18.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.5.0",
     "babel-plugin-react-compiler": "1.0.0",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "oxlint-tsgolint": "^0.22.1",
     "typescript": "^5"
   }
 }

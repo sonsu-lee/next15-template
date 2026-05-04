@@ -1,0 +1,89 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "react",
+    "react-perf",
+    "nextjs",
+    "oxc",
+    "import",
+    "jsdoc",
+    "jsx-a11y",
+    "node",
+    "promise",
+    "vitest"
+  ],
+  "jsPlugins": [
+    {
+      "name": "@stylexjs",
+      "specifier": "@stylexjs/eslint-plugin"
+    }
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn",
+    "pedantic": "warn",
+    "style": "off",
+    "restriction": "off",
+    "nursery": "off"
+  },
+  "rules": {
+    "@stylexjs/valid-styles": "error",
+    "@stylexjs/no-unused": "error",
+    "@stylexjs/valid-shorthands": "warn",
+    "@stylexjs/sort-keys": "warn",
+    "typescript/strict-boolean-expressions": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-return": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/prefer-readonly-parameter-types": "off",
+    "eslint/eqeqeq": "error",
+    "eslint/object-shorthand": "error",
+    "eslint/prefer-const": "error",
+    "eslint/prefer-template": "error",
+    "eslint/no-console": "warn",
+    "import/no-duplicates": "error",
+    "import/no-unassigned-import": "off",
+    "import/no-cycle": "error",
+    "react/jsx-boolean-value": "error",
+    "react/no-array-index-key": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/rules-of-hooks": "error",
+    "react/self-closing-comp": "error",
+    "typescript/array-type": "error",
+    "react_perf/jsx-no-jsx-as-prop": "off"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true
+  },
+  "options": {
+    "typeAware": true,
+    "typeCheck": true,
+    "maxWarnings": 0,
+    "reportUnusedDisableDirectives": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.config.js", "*.config.cjs"],
+      "env": {
+        "node": true,
+        "commonjs": true
+      },
+      "rules": {
+        "typescript/no-unsafe-assignment": "off",
+        "typescript/no-unsafe-call": "off",
+        "typescript/no-unsafe-member-access": "off",
+        "typescript/no-unsafe-return": "off"
+      }
+    }
+  ]
+}
