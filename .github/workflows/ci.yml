@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Quality
+  format:
+    name: Format
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -24,27 +24,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v6
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Set up project
+        uses: ./.github/actions/setup-project
 
       - name: Check formatting
         run: pnpm fmt:check
 
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up project
+        uses: ./.github/actions/setup-project
+
       - name: Lint
         run: pnpm lint:ci
 
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up project
+        uses: ./.github/actions/setup-project
+
       - name: Typecheck
         run: pnpm typecheck
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up project
+        uses: ./.github/actions/setup-project
 
       - name: Test
         run: pnpm test:run
@@ -53,21 +79,18 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    needs: quality
+    needs:
+      - format
+      - lint
+      - typecheck
+      - test
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v6
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
+      - name: Set up project
+        uses: ./.github/actions/setup-project
 
       - name: Restore Next.js cache
         uses: actions/cache@v5
@@ -76,9 +99,6 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.css', 'package.json', 'tsconfig.json') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prefer-offline
 
       - name: Build
         run: pnpm build
