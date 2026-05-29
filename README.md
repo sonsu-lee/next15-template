@@ -14,11 +14,11 @@ GitHub Actions.
 - TypeScript strict mode and Next.js typed routes
 - Base UI unstyled accessibility primitives
 - StyleX with Babel, PostCSS, Vitest, and lint integration
-- Oxlint with type-aware rules, StyleX lint rules, and zero-warning CI
+- Oxlint with type-aware rules and TypeScript type checking (`typeCheck`), StyleX lint rules; errors fail CI while warnings stay advisory
 - Oxfmt for formatting
 - Vitest with React Testing Library and `jsdom`
 - Renovate with pinned dependency ranges
-- GitHub Actions CI for format, lint, typecheck, test, and build
+- GitHub Actions CI for format, lint, test, and build
 
 ## Requirements
 
@@ -70,14 +70,14 @@ only if the project is intentionally published to a registry.
 | `pnpm dev` | Start the Next.js development server. |
 | `pnpm build` | Build the production application. |
 | `pnpm start` | Start the production server after `pnpm build`. |
-| `pnpm check` | Run format, lint, typecheck, tests, and build. |
+| `pnpm check` | Run format, typegen, lint, tests, and build. |
+| `pnpm typegen` | Generate Next.js route/`next-env.d.ts` types (no full build). |
 | `pnpm fmt` | Format supported files with Oxfmt. |
 | `pnpm fmt:check` | Check formatting without writing changes. |
-| `pnpm lint` | Run Oxlint. |
+| `pnpm lint` | Run Oxlint (includes type-aware rules and TypeScript type checking). |
 | `pnpm lint:fix` | Apply safe Oxlint fixes. |
 | `pnpm lint:ci` | Run Oxlint with GitHub Actions annotations. |
 | `pnpm lint:json` | Run Oxlint with machine-readable JSON output. |
-| `pnpm typecheck` | Run TypeScript without emitting output. |
 | `pnpm test` | Run Vitest in watch mode. |
 | `pnpm test:run` | Run Vitest once. |
 
@@ -187,8 +187,8 @@ pnpm check
 `pnpm check` runs the local checks in this order:
 
 1. `pnpm fmt:check`
-2. `pnpm lint`
-3. `pnpm typecheck`
+2. `pnpm typegen`
+3. `pnpm lint`
 4. `pnpm test:run`
 5. `pnpm build`
 

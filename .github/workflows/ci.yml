@@ -42,23 +42,11 @@ jobs:
       - name: Set up project
         uses: ./.github/actions/setup-project
 
+      - name: Generate types
+        run: pnpm typegen
+
       - name: Lint
         run: pnpm lint:ci
-
-  typecheck:
-    name: Typecheck
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Set up project
-        uses: ./.github/actions/setup-project
-
-      - name: Typecheck
-        run: pnpm typecheck
 
   test:
     name: Test
@@ -82,7 +70,6 @@ jobs:
     needs:
       - format
       - lint
-      - typecheck
       - test
 
     steps:
