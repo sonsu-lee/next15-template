@@ -30,6 +30,14 @@
 !/.codex/
 !/.codex/config.toml
 
+# claude code
+/.claude/*
+!/.claude/
+!/.claude/settings.json
+
+# serena (local tooling)
+/.serena/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

@@ -11,5 +11,5 @@
   "arrowParens": "always",
   "endOfLine": "lf",
   "sortImports": true,
-  "ignorePatterns": ["**/*.md"]
+  "ignorePatterns": ["**/*.md", ".claude/**", ".serena/**"]
 }
