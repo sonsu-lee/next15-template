@@ -24,8 +24,8 @@
   "categories": {
     "correctness": "error",
     "suspicious": "error",
-    "perf": "warn",
-    "pedantic": "warn",
+    "perf": "error",
+    "pedantic": "error",
     "style": "off",
     "restriction": "off",
     "nursery": "off"
@@ -33,8 +33,8 @@
   "rules": {
     "@stylexjs/valid-styles": "error",
     "@stylexjs/no-unused": "error",
-    "@stylexjs/valid-shorthands": "warn",
-    "@stylexjs/sort-keys": "warn",
+    "@stylexjs/valid-shorthands": "error",
+    "@stylexjs/sort-keys": "error",
     "typescript/strict-boolean-expressions": "error",
     "typescript/no-misused-promises": "error",
     "typescript/no-unsafe-assignment": "error",
@@ -59,7 +59,20 @@
     "react/rules-of-hooks": "error",
     "react/self-closing-comp": "error",
     "typescript/array-type": "error",
-    "react_perf/jsx-no-jsx-as-prop": "off"
+    "react_perf/jsx-no-jsx-as-prop": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/require-param": "off",
+    "jsdoc/require-returns": "off",
+    "no-warning-comments": "off",
+    "no-inline-comments": "off",
+    "max-lines": "off",
+    "max-lines-per-function": "off",
+    "max-depth": "warn",
+    "no-await-in-loop": "warn",
+    "max-nested-callbacks": "warn",
+    "max-classes-per-file": "off",
+    "typescript/no-deprecated": "warn"
   },
   "env": {
     "builtin": true,
@@ -68,7 +81,6 @@
   "options": {
     "typeAware": true,
     "typeCheck": true,
-    "maxWarnings": 0,
     "reportUnusedDisableDirectives": "error"
   },
   "overrides": [
